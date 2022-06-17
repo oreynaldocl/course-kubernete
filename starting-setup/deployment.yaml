@@ -18,3 +18,6 @@ spec:
         - name: second-node
           image: oreynaldocl/kub-first-app
         # - new image
+# kubectl create deployment first-app --image=oreynaldocl/kub-first-app
+# kubectl scale deployment/first-app --replicas=3
+# kubectl set image deployment/first-app kub-first-app=oreynaldocl/kub-first-app:2
