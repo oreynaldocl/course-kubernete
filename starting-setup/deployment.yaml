@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: second-app-deployment
+spec:
+  replicas: 3 # can be 0, when no pod is required
+  selector: # helps to select many pods while CRUD, it will control any pod that contains the followin labels
+    matchLabels:
+      app: second-app
+      tier: backend
+  template: # by default KIND:POD, not required to add
+    metadata:
+      labels:
+        app: second-app
+        tier: backend
+    spec:
+      containers:
+        - name: second-node
+          image: oreynaldocl/kub-first-app:2
+        # - new image
+# kubectl create deployment first-app --image=oreynaldocl/kub-first-app
+# kubectl scale deployment/first-app --replicas=3
+# kubectl set image deployment/first-app kub-first-app=oreynaldocl/kub-first-app:2

@@ -1,0 +1,17 @@
+apiVersion: v1 # can avoid core/, becuase it is the only type can use
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector: # specify the labes of pod that will be managed by this service
+    app: second-app
+  ports:
+    - protocol: 'TCP'
+      port: 80 # port that will be exported
+      targetPort: 8080 # internal port
+    # - protocol: 'TCP'
+    #   port: 443
+    #   targetPort: 443
+  type: LoadBalancer
+
+#  ~  kubectl expose deployment first-app --type=LoadBalancer --port=8080
