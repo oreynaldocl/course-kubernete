@@ -32,3 +32,10 @@ spec:
         - name: story
           image: oreynaldocl/kub-data-demo:1
           imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /app/story
+              name: story-volume
+      volumes:
+        - name: story-volume
+          emptyDir: {}  # start with empty dir, if pod is restart, the volume's data is kept
+                        # when pod is eliminated, the volume id deleted too
