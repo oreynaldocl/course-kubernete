@@ -42,4 +42,7 @@ kubectl delete service backend
 
 # or better use the files
 kubectl delete -f deployment.yaml,service.yaml
+
+# delete based on labels
+ ~  kubectl delete deployments,services -l group=example
 ```

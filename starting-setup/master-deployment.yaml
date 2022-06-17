@@ -4,6 +4,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend
+  labels:
+    group: example
 spec:
   selector:
     app: second-app
@@ -17,12 +19,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: second-app-deployment
+  labels:
+    group: example
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: second-app
       tier: backend
+    # used for more complex selector, used only if it is required
+    # matchExpressions:
+    #   - {key: app, operator: NotIn, values: [first-app,second-app]}
   template:
     metadata:
       labels:
