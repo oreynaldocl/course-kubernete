@@ -1,0 +1,34 @@
+#  services
+apiVersion: v1
+kind: Service
+metadata:
+  name: story-service
+spec:
+  selector:
+    app: story
+  type: LoadBalancer
+  ports:
+    - protocol: "TCP"
+      port: 9090
+      targetPort: 3000
+
+---
+# deployments
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: story-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: story
+  template:
+    metadata:
+      labels:
+        app: story
+    spec:
+      containers:
+        - name: story
+          image: oreynaldocl/kub-data-demo
+          imagePullPolicy: Always
