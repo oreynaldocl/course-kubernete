@@ -33,3 +33,13 @@ second-app-deployment   1/1     1            1           10s
 # minikube still has problem, requires to port-forward
 ~  kubectl port-forward service/backend 7080:80
 ```
+
+# DELETE
+```
+# It is still possible to use
+kubectl delete deployment second-app-deployment
+kubectl delete service backend
+
+# or better use the files
+kubectl delete -f deployment.yaml,service.yaml
+```
