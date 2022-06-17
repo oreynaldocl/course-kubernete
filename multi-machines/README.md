@@ -17,4 +17,5 @@ Comands:
 # Update and push again
 # Update the version of the image and change in yaml
 ~  kubectl apply -f .\01-starting-setup\master-deployment.yaml
+# Every restart of container data will lose
 ```
