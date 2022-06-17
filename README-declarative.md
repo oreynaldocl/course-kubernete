@@ -46,3 +46,12 @@ kubectl delete -f deployment.yaml,service.yaml
 # delete based on labels
  ~  kubectl delete deployments,services -l group=example
 ```
+
+# Join configurations
+```
+# it is possible to create both
+~  kubectl apply -f master-deployment.yaml
+# It is possible to delete both with same file
+~  kubectl delete -f master-deployment.yaml
+
+```

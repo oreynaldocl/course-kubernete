@@ -38,7 +38,8 @@ spec:
     spec:
       containers:
         - name: second-node
-          image: oreynaldocl/kub-first-app:2
+          image: oreynaldocl/kub-first-app:2 # :latest will always pull the image
+          imagePullPolicy: Always
           livenessProbe:
             httpGet:
               path: / # describe the path or resource that helps
