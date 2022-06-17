@@ -19,3 +19,10 @@ Comands:
 ~  kubectl apply -f .\01-starting-setup\master-deployment.yaml
 # Every restart of container data will lose
 ```
+# VOLUMES
+It is possible to define a volume that is for a pod/node (shared between replicas) but are not shared to other pods
+## Persisted volumes
+Create new resource, that doesn't "belongs" to the pods
+
+Claim: The pod wants to use should claim
+"That would be called 'Dynamic Volume Provisioning' and is an advanced administration topic. We stick to 'Static Provisiong'"
