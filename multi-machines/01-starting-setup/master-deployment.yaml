@@ -30,5 +30,5 @@ spec:
     spec:
       containers:
         - name: story
-          image: oreynaldocl/kub-data-demo
+          image: oreynaldocl/kub-data-demo:1
           imagePullPolicy: Always
