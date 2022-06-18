@@ -39,7 +39,7 @@ app.post('/login', async (req, res) => {
   // It's just a dummy service - we don't really care for the email
   const email = req.body.email;
   const password = req.body.password;
-
+  console.log(`email: ${email}, pass: ${password}`);
   if (
     !password ||
     password.trim().length === 0 ||
