@@ -36,3 +36,5 @@ Persistent: it is global and require more complext and mantainability.
     - Better when manager many pods
 
 # ENVIRONMENT VARS
+1. Can be addeed directly to container spec `env:\n-name: XXX\nvalue: XXX`
+2. Can create a shared resource and shared between pods `kind:ConfigMap`
