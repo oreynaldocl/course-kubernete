@@ -34,3 +34,5 @@ Normal: it lives while POD lives
 Persistent: it is global and require more complext and mantainability.
     - Overkill for small project.
     - Better when manager many pods
+
+# ENVIRONMENT VARS
