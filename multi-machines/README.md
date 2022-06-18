@@ -21,8 +21,16 @@ Comands:
 ```
 # VOLUMES
 It is possible to define a volume that is for a pod/node (shared between replicas) but are not shared to other pods
-## Persisted volumes
+## Persistent volumes
 Create new resource, that doesn't "belongs" to the pods
 
 Claim: The pod wants to use should claim
 "That would be called 'Dynamic Volume Provisioning' and is an advanced administration topic. We stick to 'Static Provisiong'"
+
+## Types
+"Normal" vs "Persistent"
+Both will keep the data while restart/updates.
+Normal: it lives while POD lives
+Persistent: it is global and require more complext and mantainability.
+    - Overkill for small project.
+    - Better when manager many pods
