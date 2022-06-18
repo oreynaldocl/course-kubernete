@@ -30,7 +30,15 @@ spec:
     spec:
       containers:
         - name: story
-          image: oreynaldocl/kub-data-demo:1
+          image: oreynaldocl/kub-data-demo:2
+          env:
+             # key used inside of container, not possible to change, but it can target to a shared resource
+            - name: STORY_FOLDER
+            # value: 'story' # not possible to use both configuration
+              valueFrom:
+                configMapKeyRef:
+                  name: data-store-env
+                  key: folder
           volumeMounts:
             - mountPath: /app/story
               name: story-volume
