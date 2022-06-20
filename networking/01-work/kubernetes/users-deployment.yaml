@@ -29,5 +29,7 @@ spec:
         - image: oreynaldocl/kub-demo-users:latest
           name: users
           env:
-            - name: ENVVARNAME
-              value: ENVVARVALUE
+            - name: AUTH_ADDRESS
+              value: localhost # communication between containers inside of same POD
+        - image: oreynaldocl/kub-demo-auth:latest
+          name: auth
