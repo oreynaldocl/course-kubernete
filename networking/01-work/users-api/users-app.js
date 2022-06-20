@@ -23,7 +23,8 @@ app.post("/signup", async (req, res) => {
   }
 
   try {
-    const auth_address = process.env.AUTH_ADDRESS;
+    // you can get the name SERVICE_NAME+_SERVICE_HOST, _ instead -
+    const auth_address = process.env.AUTH_SERVICE_SERVICE_HOST;
     const hashedPW = await axios.get(`http://${auth_address}/hashed-password/${password}`);
     // since it's a dummy service, we don't really care for the hashed-pw either
     console.log(hashedPW, email);

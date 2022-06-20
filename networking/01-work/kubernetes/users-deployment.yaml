@@ -30,6 +30,5 @@ spec:
           name: users
           env:
             - name: AUTH_ADDRESS
-              value: localhost # communication between containers inside of same POD
-        - image: oreynaldocl/kub-demo-auth:latest
-          name: auth
+              value: "10.97.255.227"  # communication between containers inside of same POD
+                                # It is possible to use CLUSTERIP get from `kubectl get service` 
