@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  user-service
+spec:
+  selector:
+    app:  users
+  type:  LoadBalancer # ClusterIP default (only inside), NodePort (external, but changes the IP when have replicas)
+  ports:
+  - protocol:  TCP
+    port:  8080
+    targetPort:  8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users
+  template:
+    metadata:
+      labels:
+        app: users
+    spec:
+      containers:
+        - image: oreynaldocl/kub-demo-users:latest
+          name: users
+          env:
+            - name: ENVVARNAME
+              value: ENVVARVALUE
