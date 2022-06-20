@@ -30,5 +30,7 @@ spec:
           name: users
           env:
             - name: AUTH_ADDRESS
-              value: "10.97.255.227"  # communication between containers inside of same POD
-                                # It is possible to use CLUSTERIP get from `kubectl get service` 
+              value: "auth-service.default"
+              # localhost for communication inside of same POD
+              # different pods use clusterIP
+              # use cluster CDN 

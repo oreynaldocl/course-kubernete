@@ -17,6 +17,10 @@ user-service   LoadBalancer   10.110.181.88   <pending>     8080:30952/TCP   7h1
     const auth_address = process.env.AUTH_SERVICE_SERVICE_HOST;
     const hashedPW = await axios.get(`http://${auth_address}/hashed-password/${password}`);
 ```
+- DNS inside cluster, use the service name and namespace => service-name.namespace
+```bash
+kubectl get namespaces
+```
 
 # EASY COMMANDS
 docker build -t oreynaldocl/kub-demo-users:latest . && docker build -t oreynaldocl/kub-demo-users:3 .
