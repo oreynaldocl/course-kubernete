@@ -1,36 +1,46 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name:  users-service
+  name:  tasks-service
 spec:
   selector:
-    app:  users
+    app:  tasks
   type:  LoadBalancer # ClusterIP default (only inside), NodePort (external, but changes the IP when have replicas)
   ports:
   - protocol:  TCP
-    port:  8080
-    targetPort:  8080
+    port:  8000
+    targetPort:  8000
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: users-deployment
+  name: tasks-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: users
+      app: tasks
   template:
     metadata:
       labels:
-        app: users
+        app: tasks
     spec:
       containers:
-        - image: oreynaldocl/kub-demo-users:latest
-          name: users
+        - image: oreynaldocl/kub-demo-tasks:latest
+          name: tasks
           env:
             - name: AUTH_ADDRESS
               value: "auth-service.default"
+            - name: TASKS_FOLDER
+              value: tasks
               # localhost for communication inside of same POD
               # different pods use clusterIP
               # use cluster CDN 
+          volumeMounts:
+            - mountPath: /app/tasks
+              name: tasks-volume
+      volumes:
+        - name: tasks-volume
+          hostPath:
+            path: /data
+            type: DirectoryOrCreate

@@ -22,6 +22,14 @@ user-service   LoadBalancer   10.110.181.88   <pending>     8080:30952/TCP   7h1
 kubectl get namespaces
 ```
 
+## Which is better
+- Depends the type of use
+- Better if don't have more than one container inside of pod
+
 # EASY COMMANDS
 docker build -t oreynaldocl/kub-demo-users:latest . && docker build -t oreynaldocl/kub-demo-users:3 .
 docker push oreynaldocl/kub-demo-users:latest && docker push oreynaldocl/kub-demo-users:3
+
+
+docker build -t oreynaldocl/kub-demo-tasks:latest . && docker build -t oreynaldocl/kub-demo-tasks:1 .
+docker push oreynaldocl/kub-demo-tasks:latest && docker push oreynaldocl/kub-demo-tasks:1
